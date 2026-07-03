@@ -48,7 +48,7 @@ export default function Dashboard() {
     const res = await fetch("/api/test-notify", { method: "POST" });
     const data = await res.json();
     if (data.success) alert("Notification sent! Check your phone.");
-    else alert("Failed to send notification.");
+    else alert("Failed: " + (data.error || "Unknown error"));
   }
 
   function getDaysOverdue(plant: Plant): number {

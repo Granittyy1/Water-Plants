@@ -3,14 +3,19 @@ import { getPlants } from "@/lib/plants";
 import { sendNotification } from "@/lib/ntfy";
 
 export async function POST() {
-  const plants = await getPlants();
-  const sample = plants[0];
+  try {
+    const plants = await getPlants();
+    const sample = plants[0];
 
-  const message = sample
-    ? `\ud83e\uddea Test: ${sample.name} needs watering!`
-    : `\ud83e\uddea Test notification working! Add some plants to get started.`;
+    const message = sample
+      ? `Test: ${sample.name} needs watering!`
+      : `Test notification working! Add some plants to get started.`;
 
-  await sendNotification(message);
+    await sendNotification(message);
 
-  return NextResponse.json({ success: true, message });
+    return NextResponse.json({ success: true, message });
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ success: false, error: errorMsg }, { status: 500 });
+  }
 }
