@@ -7,8 +7,8 @@ export async function POST() {
   const sample = plants[0];
 
   const message = sample
-    ? `?? Test: ${sample.name} needs watering!`
-    : `?? Test notification working! Add some plants to get started.`;
+    ? `\ud83e\uddea Test: ${sample.name} needs watering!`
+    : `\ud83e\uddea Test notification working! Add some plants to get started.`;
 
   await sendNotification(message);
 

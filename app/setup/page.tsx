@@ -95,7 +95,7 @@ export default function SetupPage() {
             />
           ) : (
             <div className="text-gray-400">
-              <p className="text-4xl mb-2">??</p>
+              <p className="text-4xl mb-2">&#128247;</p>
               <p>Click to upload a photo</p>
             </div>
           )}
@@ -114,7 +114,7 @@ export default function SetupPage() {
             disabled={identifying}
             className="mt-3 w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors font-medium"
           >
-            {identifying ? "Identifying..." : "?? Identify with AI"}
+            {identifying ? "Identifying..." : "\ud83d\udd0d Identify with AI"}
           </button>
         )}
       </div>
@@ -166,7 +166,7 @@ export default function SetupPage() {
           disabled={saving || !name || !species}
           className="w-full px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors font-semibold text-lg"
         >
-          {saving ? "Saving..." : "? Save Plant"}
+          {saving ? "Saving..." : "Save Plant"}
         </button>
       </div>
     </main>

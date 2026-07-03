@@ -4,7 +4,7 @@ export async function sendNotification(message: string): Promise<void> {
 
   await fetch(`https://ntfy.sh/${topic}`, {
     method: "POST",
-    headers: { Title: "Water Plants ??" },
+    headers: { Title: "Water Plants" },
     body: message,
   });
 }

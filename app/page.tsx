@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <main className="max-w-2xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">?? My Plants</h1>
+        <h1 className="text-3xl font-bold text-gray-900">&#127793; My Plants</h1>
         <div className="flex gap-2">
           <button
             onClick={testNotification}
@@ -81,7 +81,7 @@ export default function Dashboard() {
 
       {plants.length === 0 ? (
         <div className="text-center py-16 text-gray-500">
-          <p className="text-5xl mb-4">??</p>
+          <p className="text-5xl mb-4">&#129716;</p>
           <p className="text-lg">No plants yet.</p>
           <Link
             href="/setup"
@@ -130,7 +130,7 @@ export default function Dashboard() {
                     onClick={() => markWatered(plant.id)}
                     className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium shrink-0"
                   >
-                    ?? Watered
+                    &#128167; Watered
                   </button>
                 </div>
               </div>
