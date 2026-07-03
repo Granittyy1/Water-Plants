@@ -26,8 +26,13 @@ export async function POST(request: NextRequest) {
     imageUrl,
   };
 
-  await addPlant(plant);
-  return NextResponse.json(plant, { status: 201 });
+  try {
+    await addPlant(plant);
+    return NextResponse.json(plant, { status: 201 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : "Unknown error";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
 }
 
 export async function DELETE(request: NextRequest) {

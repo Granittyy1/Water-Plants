@@ -61,7 +61,8 @@ export default function SetupPage() {
     if (res.ok) {
       router.push("/");
     } else {
-      alert("Failed to save plant.");
+      const data = await res.json();
+      alert("Failed to save plant: " + (data.error || "Unknown error"));
       setSaving(false);
     }
   }
