@@ -12,6 +12,15 @@ interface Plant {
   imageUrl?: string;
 }
 
+const PLANT_ICONS: Record<string, string> = {
+  "1": "\uD83C\uDF3A", // orchid - hibiscus
+  "2": "\uD83C\uDF35", // christmas cactus - cactus
+  "3": "\uD83C\uDF3F", // monstera - herb/leaf
+  "4": "\uD83E\uDEB4", // zz plant - potted plant
+  "5": "\uD83C\uDF3C", // frangipani - blossom
+  "6": "\uD83C\uDF34", // dragon tree - palm
+};
+
 export default function Dashboard() {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [loading, setLoading] = useState(true);
@@ -105,7 +114,11 @@ export default function Dashboard() {
                 } shadow-sm`}
               >
                 <div className="flex items-center justify-between">
-                  <div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-4xl animate-sway">
+                      {PLANT_ICONS[plant.id] || "\uD83C\uDF31"}
+                    </span>
+                    <div>
                     <h2 className="text-lg font-semibold text-gray-900">
                       {plant.name}
                     </h2>
@@ -125,6 +138,7 @@ export default function Dashboard() {
                         </span>
                       )}
                     </p>
+                  </div>
                   </div>
                   <button
                     onClick={() => markWatered(plant.id)}

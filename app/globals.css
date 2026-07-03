@@ -17,3 +17,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.animate-sway {
+  animation: sway 3s ease-in-out infinite;
+  display: inline-block;
+}
