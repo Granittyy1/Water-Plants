@@ -11,14 +11,60 @@ export interface Plant {
 
 const PLANTS_BLOB = "plants.json";
 
+const DEFAULT_PLANTS: Plant[] = [
+  {
+    id: "1",
+    name: "Orchid",
+    species: "Phalaenopsis",
+    intervalDays: 7,
+    lastWatered: "2026-07-03",
+  },
+  {
+    id: "2",
+    name: "Christmas Cactus",
+    species: "Schlumbergera",
+    intervalDays: 10,
+    lastWatered: "2026-07-03",
+  },
+  {
+    id: "3",
+    name: "Monstera",
+    species: "Monstera deliciosa",
+    intervalDays: 7,
+    lastWatered: "2026-07-03",
+  },
+  {
+    id: "4",
+    name: "ZZ Plant",
+    species: "Zamioculcas zamiifolia",
+    intervalDays: 14,
+    lastWatered: "2026-07-03",
+  },
+  {
+    id: "5",
+    name: "Frangipani",
+    species: "Plumeria",
+    intervalDays: 10,
+    lastWatered: "2026-07-03",
+  },
+  {
+    id: "6",
+    name: "Dragon Tree",
+    species: "Dracaena marginata",
+    intervalDays: 10,
+    lastWatered: "2026-07-03",
+  },
+];
+
 export async function getPlants(): Promise<Plant[]> {
   try {
     const { blobs } = await list({ prefix: PLANTS_BLOB });
-    if (blobs.length === 0) return [];
+    if (blobs.length === 0) return DEFAULT_PLANTS;
     const res = await fetch(blobs[0].url);
-    return (await res.json()) as Plant[];
+    const plants = (await res.json()) as Plant[];
+    return plants.length > 0 ? plants : DEFAULT_PLANTS;
   } catch {
-    return [];
+    return DEFAULT_PLANTS;
   }
 }
 
