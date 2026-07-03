@@ -39,7 +39,7 @@ export default function SetupPage() {
       setSpecies(data.species || "");
       setIntervalDays(data.intervalDays || 7);
     } else {
-      alert("Could not identify plant: " + (data.error || "Unknown error"));
+      alert("Could not identify plant: " + (data.error || "Unknown error") + (data.details ? "\n\nDetails: " + data.details : ""));
     }
 
     setIdentifying(false);
